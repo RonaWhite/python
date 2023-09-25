@@ -355,16 +355,100 @@ git commit -m "Starting over."
 1. 打开浏览器，访问[learngitbranching.js.org](https://learngitbranching.js.org)。
 2. 在Main部分，依次点击Introduction Sequence和Ramping Up，按照提示完成相应的操作。
 
+3. 具体操作步骤如下：
+ #### 一、基础篇
+
+1. Git Commit
+
+Git Commit命令用于将本地代码更改保存到本地仓库。要提交更改，需先将更改暂存到暂存区，然后运行git commit -m "提交信息"命令。
+
+```bash
+git commit
+git commit
+```
+
+2. Git Branch
+
+
+Git Branch用于创建新的分支。可通过以下步骤创建并切换分支：
+
+```bash
+git branch bugFix
+git checkout bugFix
+```
+
+3. Git Merge
+
+Git Merge命令用于合并分支。按照以下步骤可以合并分支：
+```bash
+git checkout -b bugFix
+git commit
+git checkout master
+git commit
+git merge bugFix
+```
+
+4. Git Rebase
+
+Git Rebase允许将一条分支上的更改应用到另一条分支上。按照以下步骤可以使用Git Rebase：
+```bash
+git checkout -b bugFix
+git commit
+git checkout master
+git commit
+git checkout bugFix
+git rebase master
+```
+
+#### 二、高级篇
+
+1. 分离HEAD
+
+分离HEAD意味着不再位于任何分支上，可以自由浏览、实验更改并提交。
+ ```bash
+git checkout c4
+```
+
+2. 相对引用（^）
+
+分离HEAD意味着不再位于任何分支上，可以自由浏览、实验更改并提交。
+ ```bash
+ git checkout bugFix^
+或
+git chekcout bugFix
+git checkout HEAD^
+```
+
+3. 相对引用2（~）
+
+相对引用~也表示父提交，可通过指定数字来引用更远的父提交。
+
+ ```bash
+git branch -f master c6
+git branch -f bugFix c0
+git checkout c1
+```
+
+4. 撤销变更
+
+可以使用git reset、git checkout、git revert等命令来撤销变更。
+ ```bash
+git reset HEAD^
+git checkout pushed
+git revert HEAD
+```
+
+
 ### 实验结果
 学习结果截图如下：
 
 ![Alt text](image.png)
 
-通过学习[learngitbranching.js.org](https://learngitbranching.js.org)的Introduction Sequence和Ramping Up，掌握了基本的Git分支操作，包括创建分支、切换分支、合并分支等；了解了更多关于分支操作的技巧，包括交互式rebase、rebase合并等；加深了对Git分支操作的理解，从而更熟练地应用Git进行版本控制和协同开发。
+通过学习[learngitbranching.js.org](https://learngitbranching.js.org)的Introduction Sequence和Ramping Up，我掌握了基本的Git分支操作，包括创建分支、切换分支、合并分支等；了解了更多关于分支操作的技巧，包括交互式rebase、rebase合并等；加深了对Git分支操作的理解，从而更熟练地应用Git进行版本控制和协同开发。
 
 ## 三、学习Markdown基础
 
-查看[Markdown cheat-sheet](http://www.markdownguide.org/cheat-sheet)，学习Markdown的基础语法，常用的Markdown基本语法示例总结如下：
+通过查看[Markdown cheat-sheet](http://www.markdownguide.org/cheat-sheet)，我学习了Markdown的基础语法，常用的Markdown基本语法示例总结如下：
 
 ### 3.1 标题
 
@@ -422,7 +506,7 @@ git commit -m "Starting over."
    ```
 
    结果：
-   ![Markdown 图标](https://markdown-here.com/img/icon256.png)
+   ![原神官网封面](https://act-webstatic.mihoyo.com/puzzle/hk4e/pz_nfPSjub8Eb/resource/puzzle/upload/puzzle/2023/08/08/5994dd6cfe42d2e31e3ac743a282e6e7_7860040929021087895.mp4?x-oss-process=video/snapshot,t_1,f_jpg,m_fast)
 
 4. **引用**
 
@@ -464,7 +548,7 @@ git commit -m "Starting over."
     |-------|-------|
     | 内容1 | 内容2 |
 
-这些是Markdown的基本语法，你可以继续深入学习以掌握更多高级特性。
+
 
 ## 实验考查
 
@@ -580,4 +664,23 @@ git merge <branch_name>
 
 ## 实验总结
 
-总结一下这次实验你学习和使用到的知识，例如：编程工具的使用、数据结构、程序语言的语法、算法、编程技巧、编程思想。
+在本次实验中，我学习和应用了Git和Markdown的基础知识，以及通过learngitbranching.js.org进行了分支操作的练习。此外，我也学会了如何将实验过程和结果以Markdown格式整理并导出为PDF。
+
+在学习learngitbranching.js.org的过程中，我掌握了Git分支操作的基本原理和实际应用。我能够创建、切换、合并分支，并了解分离HEAD的含义和使用。这将对我的团队协作和项目管理有很大帮助。
+
+另外，我也学习了Markdown的基础语法，包括标题、列表、超链接等。Markdown是一种简单易用的文本标记语言，可以方便地编辑文档和撰写报告。
+
+**但是，在使用过程中，我遇到了一个问题：**
+
+Git推送到GitHub时出现错误：   
+"error: src refspec master does not match any  
+error: failed to push some refs to '<https://github.com/RonaWhite/python.git>'
+"
+这个错误是由于本地的 master 分支没有对应的远程分支，后面通过修改指令为：
+```bash
+git pull --rebase origin main
+```
+成功解决了这个问题。
+
+
+总得来说，通过本次实验，我深入学习了版本控制系统 Git 的基本概念和操作，包括如何创建仓库、提交更改、分支管理以及合并分支等。对于团队协作和个人项目开发，这些技能将极大地提高我的工作效率和代码管理能力。同时，学习了 Markdown 的基本语法和常用功能，能够更优雅地撰写文档，提高文档的可读性和美观度。
