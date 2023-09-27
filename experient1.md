@@ -65,7 +65,7 @@ git pull
 
 访问[learngitbranching.js.org](https://learngitbranching.js.org)，如下图所示完成Main部分的Introduction Sequence和Ramping Up两个小节的学习。
 
-![Learngitbranching.js.org](/Experiments/img/2023-07-28-21-07-40.png)
+![Alt text](image-1.png)
 
 上面你学习到的git命令基本上可以应付百分之九十以上的日常使用，如果你想继续深入学习git，可以：
 
@@ -358,7 +358,7 @@ git commit -m "Starting over."
 3. 具体操作步骤如下：
  #### 一、基础篇
 
-1. Git Commit
+1.1 Git Commit
 
 Git Commit命令用于将本地代码更改保存到本地仓库。要提交更改，需先将更改暂存到暂存区，然后运行git commit -m "提交信息"命令。
 
@@ -367,8 +367,7 @@ git commit
 git commit
 ```
 
-2. Git Branch
-
+1.2 Git Branch
 
 Git Branch用于创建新的分支。可通过以下步骤创建并切换分支：
 
@@ -377,10 +376,11 @@ git branch bugFix
 git checkout bugFix
 ```
 
-3. Git Merge
+1.3 Git Merge
 
 Git Merge命令用于合并分支。按照以下步骤可以合并分支：
-```bash
+
+``` bash
 git checkout -b bugFix
 git commit
 git checkout master
@@ -388,10 +388,11 @@ git commit
 git merge bugFix
 ```
 
-4. Git Rebase
+1.4 Git Rebase
 
 Git Rebase允许将一条分支上的更改应用到另一条分支上。按照以下步骤可以使用Git Rebase：
-```bash
+
+``` bash
 git checkout -b bugFix
 git commit
 git checkout master
@@ -402,16 +403,18 @@ git rebase master
 
 #### 二、高级篇
 
-1. 分离HEAD
+2.1 分离HEAD
 
 分离HEAD意味着不再位于任何分支上，可以自由浏览、实验更改并提交。
+
  ```bash
 git checkout c4
 ```
 
-2. 相对引用（^）
+2.2 相对引用（^）
 
 分离HEAD意味着不再位于任何分支上，可以自由浏览、实验更改并提交。
+
  ```bash
  git checkout bugFix^
 或
@@ -419,7 +422,7 @@ git chekcout bugFix
 git checkout HEAD^
 ```
 
-3. 相对引用2（~）
+2.3 相对引用2（~）
 
 相对引用~也表示父提交，可通过指定数字来引用更远的父提交。
 
@@ -429,17 +432,18 @@ git branch -f bugFix c0
 git checkout c1
 ```
 
-4. 撤销变更
+2.4 撤销变更
 
 可以使用git reset、git checkout、git revert等命令来撤销变更。
+
  ```bash
 git reset HEAD^
 git checkout pushed
 git revert HEAD
 ```
 
-
 ### 实验结果
+
 学习结果截图如下：
 
 ![Alt text](image.png)
@@ -452,11 +456,11 @@ git revert HEAD
 
 ### 3.1 标题
 
-   ```
-   # 标题1
-   ## 标题2
-   ### 标题3
-   ```
+```
+# 标题1
+## 标题2
+### 标题3
+```
 
    结果：
 
@@ -477,7 +481,7 @@ git revert HEAD
    **粗体文字**
    *斜体文字*
 
-1. **列表**
+### 3.3 列表
 
    ```
    - 项目1
@@ -490,7 +494,7 @@ git revert HEAD
    - 项目2
      - 子项目
 
-2. **链接**
+### 3.4 链接
 
    ```
    [文本](链接)
@@ -499,16 +503,18 @@ git revert HEAD
    结果：
    [Markdown cheat-sheet](http://www.markdownguide.org/cheat-sheet)
 
-3. **图片**
+### 3.5 图片
 
    ```
    ![替代文本](链接)
+   例如：
+   ![原神官网封面](https://act-webstatic.mihoyo.com/puzzle/hk4e/pz_nfPSjub8Eb/resource/puzzle/upload/puzzle/2023/08/08/5994dd6cfe42d2e31e3ac743a282e6e7_7860040929021087895.mp4?x-oss-process=video/snapshot,t_1,f_jpg,m_fast)
    ```
 
    结果：
    ![原神官网封面](https://act-webstatic.mihoyo.com/puzzle/hk4e/pz_nfPSjub8Eb/resource/puzzle/upload/puzzle/2023/08/08/5994dd6cfe42d2e31e3ac743a282e6e7_7860040929021087895.mp4?x-oss-process=video/snapshot,t_1,f_jpg,m_fast)
 
-4. **引用**
+### 3.6 引用
 
    ```
    > 引用文字
@@ -517,7 +523,7 @@ git revert HEAD
    结果：
    > 引用文字
 
-5. **代码**
+### 3.7 代码
 
    ```
    `代码`
@@ -526,7 +532,7 @@ git revert HEAD
    结果：
    `代码`
 
-6. **水平线**
+### 3.8 水平线
 
    ```
    ---
@@ -535,24 +541,23 @@ git revert HEAD
 结果
    ---
 
-10. **表格**
+### 3.9 表格
 
-    ```
+```
     | 表头1 | 表头2 |
     |-------|-------|
     | 内容1 | 内容2 |
-    ```
+```
 
-    结果：
-    | 表头1 | 表头2 |
-    |-------|-------|
-    | 内容1 | 内容2 |
-
-
+结果：
+| 表头1 | 表头2 |
+|-------|-------|
+| 内容1 | 内容2 |
 
 ## 实验考查
 
 ### 1. 什么是版本控制？使用Git作为版本控制软件有什么优点？
+
 版本控制是一种系统，用于记录文件内容随时间的变化，并允许用户在需要时查看、比较这些变化。它能够追踪文件的修改、删除、新增操作，并允许用户回溯到不同版本，以及在多人协作中有效地管理文件变更。Git是一种分布式版本控制系统，它可以跟踪文件的修改、历史记录和不同版本，并支持多人协作。
 
 **优点：**
@@ -674,7 +679,7 @@ git merge <branch_name>
 
 Git推送到GitHub时出现错误：   
 "error: src refspec master does not match any  
-error: failed to push some refs to '<https://github.com/RonaWhite/python.git>'
+ error: failed to push some refs to '<https://github.com/RonaWhite/python.git>'
 "
 这个错误是由于本地的 master 分支没有对应的远程分支，后面通过修改指令为：
 ```bash
