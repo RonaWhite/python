@@ -238,18 +238,18 @@ Albert Einstein once said, "A person who never made a mistake never tried anythi
 ```python
 person_name = "\n\tJohn Doe\t\n"
 
-#### 打印带有开头和末尾空白的人名
+# 打印带有开头和末尾空白的人名
 print("原始人名:", person_name)
 
-#### 使用lstrip()剔除开头的空白
+# 使用lstrip()剔除开头的空白
 person_name_lstrip = person_name.lstrip()
 print("使用lstrip()剔除开头的空白：", person_name_lstrip)
 
-#### 使用rstrip()剔除末尾的空白
+# 使用rstrip()剔除末尾的空白
 person_name_rstrip = person_name.rstrip()
 print("使用rstrip()剔除末尾的空白:", person_name_rstrip)
 
-#### 使用strip()剔除开头和末尾的空白
+# 使用strip()剔除开头和末尾的空白
 person_name_strip = person_name.strip()
 print("使用strip()剔除开头和末尾的空白：", person_name_strip)
 ```
