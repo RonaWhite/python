@@ -524,8 +524,8 @@ flowchart LR;
     number]
     C --> D{number取模2的
     结果是否为0}
-    D --> |Yes| E[返回Even]
-    D --> |No| F[返回Odd]
+    D --> |是| E[返回Even]
+    D --> |否| F[返回Odd]
     E --> G[结束]
     F --> G
 ```
