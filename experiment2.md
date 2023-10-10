@@ -499,7 +499,8 @@ def even_or_odd(number):
 #### Mermaid语法示例
 
 **markdown代码如下：**
-![AMermaid语法示例代码](img/2-image1.png)
+
+![Mermaid语法示例代码](img/2-image1.png)
 
 显示效果如下：
 
@@ -552,6 +553,7 @@ Python中的简单数据类型包括：
 - 字符串可以进行格式化，将变量的值插入到字符串中特定的位置。
 
 **2. 为什么说Python中的变量都是标签？**
+
 在Python中，变量被视为标签或者名称，而不是内存中实际存储数据的容器。
 
 - 这是因为Python的变量实际上是对象的引用，它们指向内存中的对象。
