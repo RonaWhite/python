@@ -521,10 +521,10 @@ flowchart LR
     A[开始] --> B[定义函数]
     B --> C[接受参数
     number]
-    C --> D{number取模2的
-    结果是否为0}
-    D --> |是| E[返回Even]
-    D --> |否| F[返回Odd]
+    C --> D{number取模2
+    是否为0}
+    D --> |是| E[Even]
+    D --> |否| F[Odd]
     E --> G[结束]
     F --> G
 ```
