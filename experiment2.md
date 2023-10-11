@@ -517,9 +517,8 @@ flowchart LR
 #### [偶数或者奇数（Even or Odd）](https://www.codewars.com/kata/53da3dbb4a5168369a0000fe)程序流程图
 
 ```mermaid
-flowchart LR;
-    A[开始] --> B[定义even_or_odd
-    函数]
+flowchart LR
+    A[开始] --> B[定义函数]
     B --> C[接受参数
     number]
     C --> D{number取模2的
