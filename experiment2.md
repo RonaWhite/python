@@ -518,12 +518,9 @@ flowchart LR
 
 ```mermaid
 flowchart LR
-    A[开始] --> B[定义函数
-    'even_or_odd']
-    B --> C[接收参数
-    number]
-    C --> D{number取模2
-    是否为0}
+    A[开始] --> B[定义函数'even_or_odd']
+    B --> C[接收参数number]
+    C --> D{number取模2是否为0}
     D --> |是| E[返回Even]
     E --> F[结束]
     D --> |否| E[返回Odd]
@@ -600,6 +597,8 @@ Python中的简单数据类型包括：
 
 当然，在本次实验中，我也遇到了一些问题：  
 用Markdown写好的Mermaid流程图在vscode可以成功渲染，但是将文件上传到Github上后则报错。报错效果如图：
+![Mermaid上传到Github报错效果](img/2-image2.png)
 
+通过课后询问老师和一遍遍修改细节上传Github排查原因，我发现，是由于在写'[]'内描述性语句时换行而导致的报错，最后成功解决了这个问题。
 
 总的来说，这次实验帮助我建立了Python编程的基础知识和技能，包括数据类型的使用、基本算法的实现以及流程图的绘制；同时让我更加熟悉了Python的基本语法和常用操作，通过实践提高了编程能力，受益颇多。
