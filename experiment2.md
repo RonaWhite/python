@@ -523,9 +523,9 @@ flowchart LR
     number]
     B --> C{number取模2
     是否为0}
-    C --> |是| D[Even]
+    C --> |Yes| D[Even]
     D --> E[结束]
-    C --> |否| F[Odd]
+    C --> |No| F[Odd]
     F --> E
 ```
 
