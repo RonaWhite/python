@@ -518,9 +518,7 @@ flowchart LR
 
 ```mermaid
 flowchart LR
-    A[开始] --> B[定义函数并
-    接收参数
-    number]
+    A[开始] --> B[接收number]
     B --> C{number取模2
     是否为0}
     C --> |Yes| D[Even]
