@@ -518,7 +518,8 @@ flowchart LR
 
 ```mermaid
 flowchart LR
-    A[开始] --> B[定义函数'even_or_odd'并接收number]
+    A[开始] --> B[定义函数'even_or_odd'
+并接收number]
     B --> C{number取模2是否为0}
     C --> |Yes| D[返回Even]
     D --> E[结束]
