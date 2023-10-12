@@ -529,8 +529,7 @@ flowchart LR
 ```mermaid
 flowchart LR
     A[开始] --> B[接收number]
-    B --> C{number取模2
-    是否为0}
+    B --> C{number取模2是否为0}
     C --> |Yes| D[Even]
     D --> E[结束]
     C --> |No| F[Odd]
