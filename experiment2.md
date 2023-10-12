@@ -518,13 +518,12 @@ flowchart LR
 
 ```mermaid
 flowchart LR
-    A[开始] --> B[定义函数'even_or_odd'
-并接收number]
-    B --> C{number取模2是否为0}
-    C --> |Yes| D[返回Even]
-    D --> E[结束]
-    C --> |No| F[返回Odd]
-    F --> E
+    A[开始] --> B[定义函数'even_or_odd']
+    B --> C[接收参数number]
+    C --> D{number取模2是否为0}
+    D --> |是| E[返回Even]
+    E --> F[结束]
+    D --> |否| E[返回Odd]
 ```
 
 该流程图展示了函数 `even_or_odd` 的基本逻辑，包括参数接受和条件判断。如果数字是偶数，则返回 "Even"，否则返回 "Odd"。
