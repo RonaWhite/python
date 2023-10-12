@@ -518,7 +518,7 @@ flowchart LR
 
 ```mermaid
 flowchart LR
-    A[开始] --> B[流程1]
+    A[开始] --> B[接收number]
     B --> C{判断条件}
     C --> |Yes| D[流程2]
     D --> E[结束]
