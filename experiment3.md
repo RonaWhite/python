@@ -1207,7 +1207,7 @@ def disemvowel(string_):
 #### 第一题: 3和5的倍数(Multiples of 3 or 5)
 
 ```mermaid
-graph TD
+graph TD;
     A[开始] --> B[定义函数 solution]
     B --> C[生成从0到 'number-1' 的整数列表]
     C --> D[筛选出3或5的倍数]
@@ -1256,7 +1256,7 @@ graph TD;
 #### 第四题:从随机三元组中恢复秘密字符串(Recover a secret string from random triplets)
 
 ```mermaid
-graph LR;
+graph TD;
     A[开始] --> B[建立字符顺序图]
     B --> C[深度优先搜索拓扑排序]
     C --> D[返回原始字符串]
@@ -1266,7 +1266,7 @@ graph LR;
 #### 第五题: 去掉喷子的元音（Disemvowel Trolls）
 
 ```mermaid
-graph LR;
+graph TD;
     A[开始] --> B[定义函数和元音字母集合]
     B --> C[遍历字符串并去除元音]
     C --> D[返回新字符串]
@@ -1277,6 +1277,7 @@ graph LR;
 ## 实验考查
 
 **1. Python中的列表可以进行哪些操作？**
+
 Python中的列表（List）可以进行多种操作，包括但不限于：
 
 1. **添加和移除元素**：
@@ -1317,6 +1318,7 @@ Python中的列表（List）可以进行多种操作，包括但不限于：
    - `del`: 删除列表或指定位置的元素。
 
 **2. 哪两种方法可以用来对Python的列表排序？这两种方法有和区别？**
+
 在Python中，可以使用两种方法对列表进行排序：
 
 1. **使用 `sorted()` 函数**：
@@ -1352,6 +1354,7 @@ Python中的列表（List）可以进行多种操作，包括但不限于：
 - `sorted()` 返回一个新的已排序列表，因此适用于对不可变序列进行排序，而 `sort()` 方法原地排序，适用于对可变序列进行排序，避免了额外的内存开销。
 
 **3. 如何将Python列表逆序打印？**
+
 要将Python列表逆序打印，可以通过以下两种方法实现：
 
 1. **使用切片逆序打印**：
@@ -1385,6 +1388,7 @@ Python中的列表（List）可以进行多种操作，包括但不限于：
 这两种方法可以实现逆序打印列表的元素。第一种方法生成一个逆序的新列表，而第二种方法直接在循环中逆序遍历，不生成新的逆序列表。选择方法取决于具体的需求。
 
 **4. Python中的列表执行哪些操作时效率比较高？哪些操作效率比较差？是否有类似的数据结构可以用来替代列表？**
+
 在Python中，列表（List）是一种非常灵活和常用的数据结构，但不同的操作可能会有不同的效率。以下是一些列表操作的效率情况：
 
 **高效操作**：
@@ -1404,6 +1408,7 @@ Python中的列表（List）可以进行多种操作，包括但不限于：
 总的来说，根据具体的操作需求选择合适的数据结构，以实现高效的操作。列表适用于大多数情况，但对于特定需求，可以考虑其他数据结构来提高效率。
 
 **5. 阅读《Fluent Python》Chapter 2. An Array of Sequence - Tuples Are Not Just Immutable Lists小节（p30-p35）。总结该小节的主要内容。**
+
 《Fluent Python》Chapter 2. An Array of Sequence - Tuples Are Not Just Immutable Lists 小节主要讨论了Python中元组（tuples）的特性、用法和与列表的区别。
 
 主要内容总结如下：
