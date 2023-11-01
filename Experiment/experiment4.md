@@ -1427,36 +1427,32 @@ H -->|遍历完整个RNA字符串| I[返回protein_sequence作为翻译后的蛋
 ```mermaid
 graph TD
 A[开始] --> B[检查库存中是否存在所需商品]
-B -->|存在| C[检查库存中所需商品的数量是否足够]
-C -->|足够| D[返回True，可以完成销售]
-C -->|不足| E[返回False，无法完成销售]
-B -->|不存在| E[返回False，无法完成销售]
+B -->|存在| C[检查库存中所需商品的数量]
+C -->|足够| D[完成销售]
+C -->|不足| E[无法完成销售]
+B -->|不存在| E[无法完成销售]
 ```
 
 #### 第五题：莫尔斯码解码器（Decode the Morse code, advanced）
 
 ```mermaid
 graph TD
-A[开始] --> B[去掉二进制串bits前后的所有零]
-B --> C[计算时间单位unit]
-C --> D[计算unit的真实值]
-D --> E[创建morse_code字符串]
-E --> F[返回morse_code，包含Morse电码]
-G[开始] --> H[去除morse_code字符串的前导和尾随空格]
-H --> I[初始化结果字符串result]
-I --> J[将morse_code拆分成Morse电码字符]
-J --> K[遍历Morse电码字符]
-K --> L[如果非空，将其转换为英文字母]
-L --> M[添加到result中]
-M --> K
-K -->|空| N[添加一个空格到result中]
-N --> K
-K --> O[去除额外的空格并返回result]
+    A[开始] --> B[去掉二进制串bits前后的所有零]
+    B --> C[计算时间单位unit]
+    C --> D[计算unit的真实值]
+    D --> E[创建morse_code字符串]
+    E --> F[返回morse_code，包含Morse电码]
+    G[开始] --> H[去除morse_code字符串的前导和尾随空格]
+    H --> I[初始化结果字符串result]
+    I --> J[将morse_code拆分成Morse电码字符]
+    J --> K[遍历Morse电码字符]
+    K --> L[如果非空，将其转换为英文字母]
+    L --> M[添加到result中]
+    K -->|空| N[添加一个空格到result中]
+    K --> O[去除额外的空格并返回result]
 ```
 
 ## 实验考查
-
-请使用自己的语言并使用尽量简短代码示例回答下面的问题，这些问题将在实验检查时用于提问和答辩以及实际的操作。
 
 **1. 字典的键和值有什么区别？**
 
