@@ -1433,25 +1433,6 @@ C -->|不足| E[无法完成销售]
 B -->|不存在| E[无法完成销售]
 ```
 
-#### 第五题：莫尔斯码解码器（Decode the Morse code, advanced）
-
-```mermaid
-graph TD
-    A[开始] --> B[去掉二进制串bits前后的所有零]
-    B --> C[计算时间单位unit]
-    C --> D[计算unit的真实值]
-    D --> E[创建morse_code字符串]
-    E --> F[返回morse_code，包含Morse电码]
-    G[开始] --> H[去除morse_code字符串的前导和尾随空格]
-    H --> I[初始化结果字符串result]
-    I --> J[将morse_code拆分成Morse电码字符]
-    J --> K[遍历Morse电码字符]
-    K --> L[如果非空，将其转换为英文字母]
-    L --> M[添加到result中]
-    K -->|空| N[添加一个空格到result中]
-    K --> O[去除额外的空格并返回result]
-```
-
 ## 实验考查
 
 **1. 字典的键和值有什么区别？**
