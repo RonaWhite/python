@@ -1,0 +1,970 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>experiment5.md</title>
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+
+<style>
+/* https://github.com/microsoft/vscode/blob/master/extensions/markdown-language-features/media/markdown.css */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+body {
+	font-family: var(--vscode-markdown-font-family, -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif);
+	font-size: var(--vscode-markdown-font-size, 14px);
+	padding: 0 26px;
+	line-height: var(--vscode-markdown-line-height, 22px);
+	word-wrap: break-word;
+}
+
+#code-csp-warning {
+	position: fixed;
+	top: 0;
+	right: 0;
+	color: white;
+	margin: 16px;
+	text-align: center;
+	font-size: 12px;
+	font-family: sans-serif;
+	background-color:#444444;
+	cursor: pointer;
+	padding: 6px;
+	box-shadow: 1px 1px 1px rgba(0,0,0,.25);
+}
+
+#code-csp-warning:hover {
+	text-decoration: none;
+	background-color:#007acc;
+	box-shadow: 2px 2px 2px rgba(0,0,0,.25);
+}
+
+body.scrollBeyondLastLine {
+	margin-bottom: calc(100vh - 22px);
+}
+
+body.showEditorSelection .code-line {
+	position: relative;
+}
+
+body.showEditorSelection .code-active-line:before,
+body.showEditorSelection .code-line:hover:before {
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0;
+	left: -12px;
+	height: 100%;
+}
+
+body.showEditorSelection li.code-active-line:before,
+body.showEditorSelection li.code-line:hover:before {
+	left: -30px;
+}
+
+.vscode-light.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.15);
+}
+
+.vscode-light.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.40);
+}
+
+.vscode-light.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-dark.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.4);
+}
+
+.vscode-dark.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.60);
+}
+
+.vscode-dark.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-high-contrast.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 160, 0, 0.7);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 160, 0, 1);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+img {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+a {
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+a:focus,
+input:focus,
+select:focus,
+textarea:focus {
+	outline: 1px solid -webkit-focus-ring-color;
+	outline-offset: -1px;
+}
+
+hr {
+	border: 0;
+	height: 2px;
+	border-bottom: 2px solid;
+}
+
+h1 {
+	padding-bottom: 0.3em;
+	line-height: 1.2;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+}
+
+h1, h2, h3 {
+	font-weight: normal;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+table > thead > tr > th {
+	text-align: left;
+	border-bottom: 1px solid;
+}
+
+table > thead > tr > th,
+table > thead > tr > td,
+table > tbody > tr > th,
+table > tbody > tr > td {
+	padding: 5px 10px;
+}
+
+table > tbody > tr + tr > td {
+	border-top: 1px solid;
+}
+
+blockquote {
+	margin: 0 7px 0 5px;
+	padding: 0 16px 0 10px;
+	border-left-width: 5px;
+	border-left-style: solid;
+}
+
+code {
+	font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback";
+	font-size: 1em;
+	line-height: 1.357em;
+}
+
+body.wordWrap pre {
+	white-space: pre-wrap;
+}
+
+pre:not(.hljs),
+pre.hljs code > div {
+	padding: 16px;
+	border-radius: 3px;
+	overflow: auto;
+}
+
+pre code {
+	color: var(--vscode-editor-foreground);
+	tab-size: 4;
+}
+
+/** Theming */
+
+.vscode-light pre {
+	background-color: rgba(220, 220, 220, 0.4);
+}
+
+.vscode-dark pre {
+	background-color: rgba(10, 10, 10, 0.4);
+}
+
+.vscode-high-contrast pre {
+	background-color: rgb(0, 0, 0);
+}
+
+.vscode-high-contrast h1 {
+	border-color: rgb(0, 0, 0);
+}
+
+.vscode-light table > thead > tr > th {
+	border-color: rgba(0, 0, 0, 0.69);
+}
+
+.vscode-dark table > thead > tr > th {
+	border-color: rgba(255, 255, 255, 0.69);
+}
+
+.vscode-light h1,
+.vscode-light hr,
+.vscode-light table > tbody > tr + tr > td {
+	border-color: rgba(0, 0, 0, 0.18);
+}
+
+.vscode-dark h1,
+.vscode-dark hr,
+.vscode-dark table > tbody > tr + tr > td {
+	border-color: rgba(255, 255, 255, 0.18);
+}
+
+</style>
+
+<style>
+/* Tomorrow Theme */
+/* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
+/* Original theme - https://github.com/chriskempson/tomorrow-theme */
+
+/* Tomorrow Comment */
+.hljs-comment,
+.hljs-quote {
+	color: #8e908c;
+}
+
+/* Tomorrow Red */
+.hljs-variable,
+.hljs-template-variable,
+.hljs-tag,
+.hljs-name,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-regexp,
+.hljs-deletion {
+	color: #c82829;
+}
+
+/* Tomorrow Orange */
+.hljs-number,
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-literal,
+.hljs-type,
+.hljs-params,
+.hljs-meta,
+.hljs-link {
+	color: #f5871f;
+}
+
+/* Tomorrow Yellow */
+.hljs-attribute {
+	color: #eab700;
+}
+
+/* Tomorrow Green */
+.hljs-string,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-addition {
+	color: #718c00;
+}
+
+/* Tomorrow Blue */
+.hljs-title,
+.hljs-section {
+	color: #4271ae;
+}
+
+/* Tomorrow Purple */
+.hljs-keyword,
+.hljs-selector-tag {
+	color: #8959a8;
+}
+
+.hljs {
+	display: block;
+	overflow-x: auto;
+	color: #4d4d4c;
+	padding: 0.5em;
+}
+
+.hljs-emphasis {
+	font-style: italic;
+}
+
+.hljs-strong {
+	font-weight: bold;
+}
+</style>
+
+<style>
+/*
+ * Markdown PDF CSS
+ */
+
+ body {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "Meiryo";
+	padding: 0 12px;
+}
+
+pre {
+	background-color: #f8f8f8;
+	border: 1px solid #cccccc;
+	border-radius: 3px;
+	overflow-x: auto;
+	white-space: pre-wrap;
+	overflow-wrap: break-word;
+}
+
+pre:not(.hljs) {
+	padding: 23px;
+	line-height: 19px;
+}
+
+blockquote {
+	background: rgba(127, 127, 127, 0.1);
+	border-color: rgba(0, 122, 204, 0.5);
+}
+
+.emoji {
+	height: 1.4em;
+}
+
+code {
+	font-size: 14px;
+	line-height: 19px;
+}
+
+/* for inline code */
+:not(pre):not(.hljs) > code {
+	color: #C9AE75; /* Change the old color so it seems less like an error */
+	font-size: inherit;
+}
+
+/* Page Break : use <div class="page"/> to insert page break
+-------------------------------------------------------- */
+.page {
+	page-break-after: always;
+}
+
+</style>
+
+<script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+</head>
+<body>
+  <script>
+    mermaid.initialize({
+      startOnLoad: true,
+      theme: document.body.classList.contains('vscode-dark') || document.body.classList.contains('vscode-high-contrast')
+          ? 'dark'
+          : 'default'
+    });
+  </script>
+<h1 id="%E5%AE%9E%E9%AA%8C%E4%BA%94-python%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E6%95%B0%E6%8D%AE%E6%A8%A1%E5%9E%8B">实验五 Python数据结构与数据模型</h1>
+<p>班级： 21计科2</p>
+<p>学号： B20210302217</p>
+<p>姓名： 刘青</p>
+<p>Github地址：<a href="https://github.com/RonaWhite/python">https://github.com/RonaWhite/python</a></p>
+<p>CodeWars地址：<a href="https://www.codewars.com/users/RonaWhite">https://www.codewars.com/users/RonaWhite</a></p>
+<hr>
+<h2 id="%E5%AE%9E%E9%AA%8C%E7%9B%AE%E7%9A%84">实验目的</h2>
+<ol>
+<li>学习Python数据结构的高级用法</li>
+<li>学习Python的数据模型</li>
+</ol>
+<h2 id="%E5%AE%9E%E9%AA%8C%E7%8E%AF%E5%A2%83">实验环境</h2>
+<ol>
+<li>Git</li>
+<li>Python 3.10</li>
+<li>VSCode</li>
+<li>VSCode插件</li>
+</ol>
+<h2 id="%E5%AE%9E%E9%AA%8C%E5%86%85%E5%AE%B9%E5%92%8C%E6%AD%A5%E9%AA%A4">实验内容和步骤</h2>
+<h3 id="%E7%AC%AC%E4%B8%80%E9%83%A8%E5%88%86">第一部分</h3>
+<p>在<a href="https://www.codewars.com">Codewars网站</a>注册账号，完成下列Kata挑战：</p>
+<hr>
+<h4 id="%E7%AC%AC%E4%B8%80%E9%A2%98%E5%81%9C%E6%AD%A2%E9%80%86%E8%BD%AC%E6%88%91%E7%9A%84%E5%8D%95%E8%AF%8D">第一题：停止逆转我的单词</h4>
+<p>难度： 6kyu</p>
+<p>编写一个函数，接收一个或多个单词的字符串，并返回相同的字符串，但所有5个或更多的字母单词都是相反的（就像这个Kata的名字一样）。传入的字符串将只由字母和空格组成。只有当出现一个以上的单词时，才会包括空格。
+例如：</p>
+<pre class="hljs"><code><div>spinWords( <span class="hljs-string">"Hey fellow warriors"</span> ) =&gt; returns <span class="hljs-string">"Hey wollef sroirraw"</span> 
+spinWords( <span class="hljs-string">"This is a test"</span>) =&gt; returns <span class="hljs-string">"This is a test"</span> 
+spinWords( <span class="hljs-string">"This is another test"</span> )=&gt; returns <span class="hljs-string">"This is rehtona test"</span>
+</div></code></pre>
+<p>代码提交地址：
+<a href="https://www.codewars.com/kata/5264d2b162488dc400000001">https://www.codewars.com/kata/5264d2b162488dc400000001</a></p>
+<p>提示：</p>
+<ul>
+<li>利用str的split方法可以将字符串分为单词列表
+例如：</li>
+</ul>
+<pre class="hljs"><code><div>words = <span class="hljs-string">"hey fellow warrior"</span>.split()
+<span class="hljs-comment"># words should be ['hey', 'fellow', 'warrior']</span>
+</div></code></pre>
+<ul>
+<li>利用列表推导将长度大于等于5的单词反转(利用切片word[::-1])</li>
+<li>最后使用str的join方法连结列表中的单词。</li>
+</ul>
+<hr>
+<h4 id="%E7%AC%AC%E4%BA%8C%E9%A2%98-%E5%8F%91%E7%8E%B0%E7%A6%BB%E7%BE%A4%E7%9A%84%E6%95%B0find-the-parity-outlier">第二题： 发现离群的数(Find The Parity Outlier)</h4>
+<p>难度：6kyu</p>
+<p>给你一个包含整数的数组（其长度至少为3，但可能非常大）。该数组要么完全由奇数组成，要么完全由偶数组成，除了一个整数N。请写一个方法，以该数组为参数，返回这个 &quot;离群 &quot;的N。</p>
+<p>例如：</p>
+<pre class="hljs"><code><div>[<span class="hljs-number">2</span>, <span class="hljs-number">4</span>, <span class="hljs-number">0</span>, <span class="hljs-number">100</span>, <span class="hljs-number">4</span>, <span class="hljs-number">11</span>, <span class="hljs-number">2602</span>, <span class="hljs-number">36</span>]
+<span class="hljs-comment"># Should return: 11 (the only odd number)</span>
+
+[<span class="hljs-number">160</span>, <span class="hljs-number">3</span>, <span class="hljs-number">1719</span>, <span class="hljs-number">19</span>, <span class="hljs-number">11</span>, <span class="hljs-number">13</span>, <span class="hljs-number">-21</span>]
+<span class="hljs-comment"># Should return: 160 (the only even number)</span>
+</div></code></pre>
+<p>代码提交地址：
+<a href="https://www.codewars.com/kata/5526fc09a1bbd946250002dc">https://www.codewars.com/kata/5526fc09a1bbd946250002dc</a></p>
+<hr>
+<h4 id="%E7%AC%AC%E4%B8%89%E9%A2%98-%E6%A3%80%E6%B5%8Bpangram">第三题： 检测Pangram</h4>
+<p>难度：6kyu</p>
+<p>pangram是一个至少包含每个字母一次的句子。例如，&quot;The quick brown fox jumps over the lazy dog &quot;这个句子就是一个pangram，因为它至少使用了一次字母A-Z（大小写不相关）。</p>
+<p>给定一个字符串，检测它是否是一个pangram。如果是则返回<code>True</code>，如果不是则返回<code>False</code>。忽略数字和标点符号。
+代码提交地址：
+<a href="https://www.codewars.com/kata/545cedaa9943f7fe7b000048">https://www.codewars.com/kata/545cedaa9943f7fe7b000048</a></p>
+<hr>
+<h4 id="%E7%AC%AC%E5%9B%9B%E9%A2%98-%E6%95%B0%E7%8B%AC%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88%E9%AA%8C%E8%AF%81">第四题： 数独解决方案验证</h4>
+<p>难度：6kyu</p>
+<p>数独背景</p>
+<p>数独是一种在 9x9 网格上进行的游戏。游戏的目标是用 1 到 9 的数字填充网格的所有单元格，以便每一列、每一行和九个 3x3 子网格（也称为块）中的都包含数字 1 到 9。更多信息请访问：<a href="http://en.wikipedia.org/wiki/Sudoku">http://en.wikipedia.org/wiki/Sudoku</a></p>
+<p>编写一个函数接受一个代表数独板的二维数组，如果它是一个有效的解决方案则返回 true，否则返回 false。数独板的单元格也可能包含 0，这将代表空单元格。包含一个或多个零的棋盘被认为是无效的解决方案。棋盘总是 9 x 9 格，每个格只包含 0 到 9 之间的整数。</p>
+<p>代码提交地址：
+<a href="https://www.codewars.com/kata/63d1bac72de941033dbf87ae">https://www.codewars.com/kata/63d1bac72de941033dbf87ae</a></p>
+<hr>
+<h4 id="%E7%AC%AC%E4%BA%94%E9%A2%98-%E7%96%AF%E7%8B%82%E7%9A%84%E5%BD%A9%E8%89%B2%E4%B8%89%E8%A7%92%E5%BD%A2">第五题： 疯狂的彩色三角形</h4>
+<p>难度： 2kyu</p>
+<p>一个彩色的三角形是由一排颜色组成的，每一排都是红色、绿色或蓝色。连续的几行，每一行都比上一行少一种颜色，是通过考虑前一行中的两个相接触的颜色而产生的。如果这些颜色是相同的，那么新的一行就使用相同的颜色。如果它们不同，则在新的一行中使用缺失的颜色。这个过程一直持续到最后一行，只有一种颜色被生成。</p>
+<p>例如：</p>
+<pre class="hljs"><code><div>Colour here:            G G        B G        R G        B R
+Becomes colour here:     G          R          B          G
+</div></code></pre>
+<p>一个更大的三角形例子：</p>
+<pre class="hljs"><code><div>R R G B R G B B
+ R B R G B R B
+  G G B R G G
+   G R G B G
+    B B R R
+     B G R
+      R B
+       G
+</div></code></pre>
+<p>你将得到三角形的第一行字符串，你的工作是返回最后的颜色，这将出现在最下面一行的字符串。在上面的例子中，你将得到 &quot;RRGBRGBB&quot;，你应该返回 &quot;G&quot;。
+限制条件： 1 &lt;= length(row) &lt;= 10 ** 5
+输入的字符串将只包含大写字母'B'、'G'或'R'。</p>
+<p>例如：</p>
+<pre class="hljs"><code><div>triangle(<span class="hljs-string">'B'</span>) == <span class="hljs-string">'B'</span>
+triangle(<span class="hljs-string">'GB'</span>) == <span class="hljs-string">'R'</span>
+triangle(<span class="hljs-string">'RRR'</span>) == <span class="hljs-string">'R'</span>
+triangle(<span class="hljs-string">'RGBG'</span>) == <span class="hljs-string">'B'</span>
+triangle(<span class="hljs-string">'RBRGBRB'</span>) == <span class="hljs-string">'G'</span>
+triangle(<span class="hljs-string">'RBRGBRBGGRRRBGBBBGG'</span>) == <span class="hljs-string">'G'</span>
+</div></code></pre>
+<p>代码提交地址：
+<a href="https://www.codewars.com/kata/5a331ea7ee1aae8f24000175">https://www.codewars.com/kata/5a331ea7ee1aae8f24000175</a></p>
+<p>提示：请参考下面的链接，利用三进制的特点来进行计算。
+<a href="https://stackoverflow.com/questions/53585022/three-colors-triangles">https://stackoverflow.com/questions/53585022/three-colors-triangles</a></p>
+<hr>
+<h3 id="%E7%AC%AC%E4%BA%8C%E9%83%A8%E5%88%86">第二部分</h3>
+<p>使用Mermaid绘制程序流程图</p>
+<p>安装VSCode插件：</p>
+<ul>
+<li>Markdown Preview Mermaid Support</li>
+<li>Mermaid Markdown Syntax Highlighting</li>
+</ul>
+<p>使用Markdown语法绘制你的程序绘制程序流程图（至少一个），Markdown代码如下：</p>
+<p><img src="img/5-image.png" alt="程序流程图"></p>
+<p>显示效果如下：</p>
+<pre><code class="language-mermaid"><div class="mermaid">flowchart LR
+    A[Start] --> B{Is it?}
+    B -->|Yes| C[OK]
+    C --> D[Rethink]
+    D --> B
+    B ---->|No| E[End]
+</div></code></pre>
+<p>查看Mermaid流程图语法--&gt;<a href="https://mermaid.js.org/syntax/flowchart.html">点击这里</a></p>
+<p>使用Markdown编辑器（例如VScode）编写本次实验的实验报告，包括<a href="#%E5%AE%9E%E9%AA%8C%E8%BF%87%E7%A8%8B%E4%B8%8E%E7%BB%93%E6%9E%9C">实验过程与结果</a>、<a href="#%E5%AE%9E%E9%AA%8C%E8%80%83%E6%9F%A5">实验考查</a>和<a href="#%E5%AE%9E%E9%AA%8C%E6%80%BB%E7%BB%93">实验总结</a>，并将其导出为 <strong>PDF格式</strong> 来提交。</p>
+<h2 id="%E5%AE%9E%E9%AA%8C%E8%BF%87%E7%A8%8B%E4%B8%8E%E7%BB%93%E6%9E%9C">实验过程与结果</h2>
+<h3 id="%E7%AC%AC%E4%B8%80%E9%83%A8%E5%88%86-codewars-kata%E6%8C%91%E6%88%98">第一部分 Codewars Kata挑战</h3>
+<h4 id="%E7%AC%AC%E4%B8%80%E9%A2%98%E5%81%9C%E6%AD%A2%E9%80%86%E8%BD%AC%E6%88%91%E7%9A%84%E5%8D%95%E8%AF%8D">第一题:停止逆转我的单词</h4>
+<p>难度： 6kyu</p>
+<p>编写一个函数，接收一个或多个单词的字符串，并返回相同的字符串，但所有5个或更多的字母单词都是相反的（就像这个Kata的名字一样）。传入的字符串将只由字母和空格组成。只有当出现一个以上的单词时，才会包括空格。
+例如：</p>
+<pre class="hljs"><code><div>spinWords( <span class="hljs-string">"Hey fellow warriors"</span> ) =&gt; returns <span class="hljs-string">"Hey wollef sroirraw"</span> 
+spinWords( <span class="hljs-string">"This is a test"</span>) =&gt; returns <span class="hljs-string">"This is a test"</span> 
+spinWords( <span class="hljs-string">"This is another test"</span> )=&gt; returns <span class="hljs-string">"This is rehtona test"</span>
+</div></code></pre>
+<p>代码提交地址：
+<a href="https://www.codewars.com/kata/5264d2b162488dc400000001">https://www.codewars.com/kata/5264d2b162488dc400000001</a>
+提示：</p>
+<ul>
+<li>利用str的split方法可以将字符串分为单词列表
+例如：</li>
+</ul>
+<pre class="hljs"><code><div>words = <span class="hljs-string">"hey fellow warrior"</span>.split()
+<span class="hljs-comment"># words should be ['hey', 'fellow', 'warrior']</span>
+</div></code></pre>
+<ul>
+<li>利用列表推导将长度大于等于5的单词反转(利用切片word[::-1])</li>
+<li>最后使用str的join方法连结列表中的单词。</li>
+</ul>
+<p>代码如下：</p>
+<pre class="hljs"><code><div><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">spin_words</span><span class="hljs-params">(sentence)</span>:</span>
+    <span class="hljs-comment"># 将句子分割成单词</span>
+    words = sentence.split()
+    
+    <span class="hljs-comment"># 遍历单词并反转长度大于等于5的单词</span>
+    <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> range(len(words)):
+        <span class="hljs-keyword">if</span> len(words[i]) &gt;= <span class="hljs-number">5</span>:
+            words[i] = words[i][::<span class="hljs-number">-1</span>]  <span class="hljs-comment"># 反转单词</span>
+    
+    <span class="hljs-comment"># 将反转后的单词用空格重新拼接成一个字符串</span>
+    result = <span class="hljs-string">' '</span>.join(words)
+    
+    <span class="hljs-keyword">return</span> result
+</div></code></pre>
+<p><strong>解题过程描述：</strong></p>
+<ol>
+<li>
+<p><strong>分割句子为单词：</strong> 首先，将输入的句子分割成单词。通过空格来实现，因为单词之间通常由空格分隔。</p>
+</li>
+<li>
+<p><strong>遍历单词并反转：</strong> 接下来，遍历这些单词。对于每个单词，检查它的长度是否大于或等于5个字符。如果是，反转这个单词。</p>
+</li>
+<li>
+<p><strong>拼接单词为句子：</strong> 在反转或不反转单词后，将这些单词重新拼接成一个新的句子。确保在拼接单词时使用空格分隔它们。</p>
+</li>
+<li>
+<p><strong>返回结果：</strong> 最后，返回拼接后的句子作为函数的输出。</p>
+</li>
+</ol>
+<hr>
+<h4 id="%E7%AC%AC%E4%BA%8C%E9%A2%98-%E5%8F%91%E7%8E%B0%E7%A6%BB%E7%BE%A4%E7%9A%84%E6%95%B0find-the-parity-outlier">第二题: 发现离群的数(Find The Parity Outlier)</h4>
+<p>难度：6kyu</p>
+<p>给你一个包含整数的数组（其长度至少为3，但可能非常大）。该数组要么完全由奇数组成，要么完全由偶数组成，除了一个整数N。请写一个方法，以该数组为参数，返回这个 &quot;离群 &quot;的N。</p>
+<p>例如：</p>
+<pre class="hljs"><code><div>[<span class="hljs-number">2</span>, <span class="hljs-number">4</span>, <span class="hljs-number">0</span>, <span class="hljs-number">100</span>, <span class="hljs-number">4</span>, <span class="hljs-number">11</span>, <span class="hljs-number">2602</span>, <span class="hljs-number">36</span>]
+<span class="hljs-comment"># Should return: 11 (the only odd number)</span>
+
+[<span class="hljs-number">160</span>, <span class="hljs-number">3</span>, <span class="hljs-number">1719</span>, <span class="hljs-number">19</span>, <span class="hljs-number">11</span>, <span class="hljs-number">13</span>, <span class="hljs-number">-21</span>]
+<span class="hljs-comment"># Should return: 160 (the only even number)</span>
+</div></code></pre>
+<p>代码提交地址：
+<a href="https://www.codewars.com/kata/5526fc09a1bbd946250002dc">https://www.codewars.com/kata/5526fc09a1bbd946250002dc</a></p>
+<p>代码如下：</p>
+<pre class="hljs"><code><div><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">find_outlier</span><span class="hljs-params">(int)</span>:</span>
+    <span class="hljs-comment"># 保存所有奇数</span>
+    odds = [x <span class="hljs-keyword">for</span> x <span class="hljs-keyword">in</span> int <span class="hljs-keyword">if</span> x%<span class="hljs-number">2</span>!=<span class="hljs-number">0</span>]
+    
+    <span class="hljs-comment"># 保存所有偶数</span>
+    evens= [x <span class="hljs-keyword">for</span> x <span class="hljs-keyword">in</span> int <span class="hljs-keyword">if</span> x%<span class="hljs-number">2</span>==<span class="hljs-number">0</span>]
+    
+    <span class="hljs-comment"># 比较偶数列表和奇数列表的长度，返回长度较小的列表的第一个元素</span>
+    <span class="hljs-keyword">return</span> odds[<span class="hljs-number">0</span>] <span class="hljs-keyword">if</span> len(odds)&lt;len(evens) <span class="hljs-keyword">else</span> evens[<span class="hljs-number">0</span>]
+</div></code></pre>
+<p><strong>解题过程描述：</strong></p>
+<p><strong>1. 创建奇数和偶数列表：</strong> 在函数中，首先创建两个空的列表 <code>odds</code> 和 <code>evens</code>，用于分别保存数组中的奇数和偶数。</p>
+<p><strong>2. 遍历数组：</strong> 遍历输入的整数数组 <code>int</code>，检查每个元素的奇偶性。如果元素是奇数（即取模2不等于0），则将其添加到 <code>odds</code> 列表中；如果元素是偶数（即取模2等于0），则将其添加到 <code>evens</code> 列表中。</p>
+<p><strong>3. 比较列表长度：</strong> 接下来，比较 <code>odds</code> 和 <code>evens</code> 列表的长度，因为只有一个元素是离群的。返回长度较小的列表的第一个元素作为离群的数。这是因为正常情况下，奇数列表（<code>odds</code>）和偶数列表（<code>evens</code>）中的元素数量都比较多，而离群的数只有一个，所以它在较短的列表中。</p>
+<p><strong>4. 返回结果：</strong> 最后，返回离群的数作为函数的输出。</p>
+<hr>
+<h4 id="%E7%AC%AC%E4%B8%89%E9%A2%98-%E6%A3%80%E6%B5%8Bpangram">第三题: 检测Pangram</h4>
+<p>难度：6kyu</p>
+<p>pangram是一个至少包含每个字母一次的句子。例如，&quot;The quick brown fox jumps over the lazy dog &quot;这个句子就是一个pangram，因为它至少使用了一次字母A-Z（大小写不相关）。</p>
+<p>给定一个字符串，检测它是否是一个pangram。如果是则返回<code>True</code>，如果不是则返回<code>False</code>。忽略数字和标点符号。
+代码提交地址：
+<a href="https://www.codewars.com/kata/545cedaa9943f7fe7b000048">https://www.codewars.com/kata/545cedaa9943f7fe7b000048</a></p>
+<p>代码如下：</p>
+<pre class="hljs"><code><div><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">is_pangram</span><span class="hljs-params">(s)</span>:</span>
+    <span class="hljs-comment"># 将字符串转换为小写</span>
+    s = s.lower()
+    
+    <span class="hljs-comment"># 遍历所有小写字母，如果有字母不在字符串中，返回False</span>
+    <span class="hljs-keyword">for</span> char <span class="hljs-keyword">in</span> <span class="hljs-string">'abcdefghijklmnopqrstuvwxyz'</span>:
+        <span class="hljs-keyword">if</span> char <span class="hljs-keyword">not</span> <span class="hljs-keyword">in</span> s:
+            <span class="hljs-keyword">return</span> <span class="hljs-literal">False</span>
+        
+    <span class="hljs-comment"># 遍历结束，说明所有字母都在字符串中，返回True</span>
+    <span class="hljs-keyword">return</span> <span class="hljs-literal">True</span>
+</div></code></pre>
+<p><strong>解题过程描述：</strong></p>
+<p><strong>1. 转换为小写：</strong> 首先，将输入的字符串转换为小写，以满足题目要求，使大小写不相关。</p>
+<p><strong>2. 遍历字母表：</strong> 遍历英文字母表中的所有小写字母（'abcdefghijklmnopqrstuvwxyz'）。对于每个字母，检查它是否在转换后的字符串中。如果有任何一个字母不在字符串中，返回 <code>False</code>，因为这意味着字符串不包含所有字母。</p>
+<p><strong>3. 返回结果：</strong> 如果遍历结束后没有返回 <code>False</code>，则说明输入的字符串包含了字母表中的每个字母至少一次，因此返回 <code>True</code>，表示这是一个 pangram。</p>
+<hr>
+<h4 id="%E7%AC%AC%E5%9B%9B%E9%A2%98-%E6%95%B0%E7%8B%AC%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88%E9%AA%8C%E8%AF%81">第四题: 数独解决方案验证</h4>
+<p>难度：6kyu</p>
+<p>数独背景</p>
+<p>数独是一种在 9x9 网格上进行的游戏。游戏的目标是用 1 到 9 的数字填充网格的所有单元格，以便每一列、每一行和九个 3x3 子网格（也称为块）中的都包含数字 1 到 9。更多信息请访问：<a href="http://en.wikipedia.org/wiki/Sudoku">http://en.wikipedia.org/wiki/Sudoku</a></p>
+<p>编写一个函数接受一个代表数独板的二维数组，如果它是一个有效的解决方案则返回 true，否则返回 false。数独板的单元格也可能包含 0，这将代表空单元格。包含一个或多个零的棋盘被认为是无效的解决方案。棋盘总是 9 x 9 格，每个格只包含 0 到 9 之间的整数。</p>
+<p>代码提交地址：
+<a href="https://www.codewars.com/kata/63d1bac72de941033dbf87ae">https://www.codewars.com/kata/63d1bac72de941033dbf87ae</a></p>
+<p>代码如下：</p>
+<pre class="hljs"><code><div><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">validate_sudoku</span><span class="hljs-params">(board)</span>:</span>
+    
+    <span class="hljs-comment"># 利用集合进行比较 {1,2,3,4,5,6,7,8,9}</span>
+    elements = set(range(<span class="hljs-number">1</span>, <span class="hljs-number">10</span>))
+    
+    <span class="hljs-comment"># row</span>
+    <span class="hljs-keyword">for</span> b <span class="hljs-keyword">in</span> board:
+        <span class="hljs-keyword">if</span> set(b) != elements: 
+            <span class="hljs-keyword">return</span> <span class="hljs-literal">False</span>
+    
+    <span class="hljs-comment"># column</span>
+    <span class="hljs-keyword">for</span> b <span class="hljs-keyword">in</span> zip(*board):   <span class="hljs-comment"># zip(*board) 可以将矩阵转置</span>
+        <span class="hljs-keyword">if</span> set(b) != elements: 
+            <span class="hljs-keyword">return</span> <span class="hljs-literal">False</span>
+    
+    <span class="hljs-comment"># magic squares</span>
+    <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> range(<span class="hljs-number">3</span>, <span class="hljs-number">10</span>, <span class="hljs-number">3</span>):
+        <span class="hljs-keyword">for</span> j <span class="hljs-keyword">in</span> range(<span class="hljs-number">3</span>, <span class="hljs-number">10</span>, <span class="hljs-number">3</span>):
+            <span class="hljs-keyword">if</span> elements != {(board[q][w]) <span class="hljs-keyword">for</span> w <span class="hljs-keyword">in</span> range(j<span class="hljs-number">-3</span>, j) <span class="hljs-keyword">for</span> q <span class="hljs-keyword">in</span> range(i<span class="hljs-number">-3</span>, i)}:
+                <span class="hljs-keyword">return</span> <span class="hljs-literal">False</span>
+            
+    <span class="hljs-keyword">return</span> <span class="hljs-literal">True</span>
+</div></code></pre>
+<p><strong>解题过程描述：</strong></p>
+<ol>
+<li>
+<p>**创建集合：**创建一个包含数字1到9的集合 <code>elements</code>，用于后续比较。</p>
+</li>
+<li>
+<p>**验证行：**遍历数独板的每一行，将其转换为一个集合并与 <code>elements</code> 集合进行比较，以确保每一行包含1到9的所有数字。如果有任何一行不符合要求，返回 <code>False</code>，表示数独不是一个有效解决方案。</p>
+</li>
+<li>
+<p>**验证列：**通过将数独板进行转置（将行转换为列），然后用相同的方式验证每一列。对于每一列，将其转换为一个集合并与 <code>elements</code> 集合进行比较，以确保每一列包含1到9的所有数字。如果有任何一列不符合要求，返回 <code>False</code>，表示数独不是一个有效解决方案。</p>
+</li>
+<li>
+<p>**验证九宫格：**遍历九个3x3的九宫格。对于每个九宫格，使用集合推导式来提取该九宫格内的数字，并将其与 <code>elements</code> 集合进行比较，以确保九宫格包含1到9的所有数字。如果有任何一个九宫格不符合要求，返回 <code>False</code>，表示数独不是一个有效解决方案。</p>
+</li>
+<li>
+<p>**返回结果：**如果所有的行、列和九宫格都满足要求，最后返回 <code>True</code>，表示数独是一个有效解决方案。</p>
+</li>
+</ol>
+<hr>
+<h4 id="%E7%AC%AC%E4%BA%94%E9%A2%98-%E7%96%AF%E7%8B%82%E7%9A%84%E5%BD%A9%E8%89%B2%E4%B8%89%E8%A7%92%E5%BD%A2">第五题: 疯狂的彩色三角形</h4>
+<p>难度： 2kyu</p>
+<p>一个彩色的三角形是由一排颜色组成的，每一排都是红色、绿色或蓝色。连续的几行，每一行都比上一行少一种颜色，是通过考虑前一行中的两个相接触的颜色而产生的。如果这些颜色是相同的，那么新的一行就使用相同的颜色。如果它们不同，则在新的一行中使用缺失的颜色。这个过程一直持续到最后一行，只有一种颜色被生成。</p>
+<p>例如：</p>
+<pre class="hljs"><code><div>Colour here:            G G        B G        R G        B R
+Becomes colour here:     G          R          B          G
+</div></code></pre>
+<p>一个更大的三角形例子：</p>
+<pre class="hljs"><code><div>R R G B R G B B
+ R B R G B R B
+  G G B R G G
+   G R G B G
+    B B R R
+     B G R
+      R B
+       G
+</div></code></pre>
+<p>你将得到三角形的第一行字符串，你的工作是返回最后的颜色，这将出现在最下面一行的字符串。在上面的例子中，你将得到 &quot;RRGBRGBB&quot;，你应该返回 &quot;G&quot;。
+限制条件： 1 &lt;= length(row) &lt;= 10 ** 5
+输入的字符串将只包含大写字母'B'、'G'或'R'。</p>
+<p>例如：</p>
+<pre class="hljs"><code><div>triangle(<span class="hljs-string">'B'</span>) == <span class="hljs-string">'B'</span>
+triangle(<span class="hljs-string">'GB'</span>) == <span class="hljs-string">'R'</span>
+triangle(<span class="hljs-string">'RRR'</span>) == <span class="hljs-string">'R'</span>
+triangle(<span class="hljs-string">'RGBG'</span>) == <span class="hljs-string">'B'</span>
+triangle(<span class="hljs-string">'RBRGBRB'</span>) == <span class="hljs-string">'G'</span>
+triangle(<span class="hljs-string">'RBRGBRBGGRRRBGBBBGG'</span>) == <span class="hljs-string">'G'</span>
+</div></code></pre>
+<p>代码提交地址：
+<a href="https://www.codewars.com/kata/5a331ea7ee1aae8f24000175">https://www.codewars.com/kata/5a331ea7ee1aae8f24000175</a></p>
+<p>提示：请参考下面的链接，利用三进制的特点来进行计算。
+<a href="https://stackoverflow.com/questions/53585022/three-colors-triangles">https://stackoverflow.com/questions/53585022/three-colors-triangles</a></p>
+<p>代码如下：</p>
+<pre class="hljs"><code><div>fac = [<span class="hljs-number">1</span>, <span class="hljs-number">1</span>, <span class="hljs-number">2</span>]
+
+<span class="hljs-comment"># 计算组合数 C(n, m) 在模3下的结果，inv(x) 表示取反，即0-&gt;0, 1-&gt;2, 2-&gt;1</span>
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">C</span><span class="hljs-params">(n, m)</span>:</span>
+    <span class="hljs-comment"># 如果 n 小于 m，则返回 0</span>
+    <span class="hljs-keyword">if</span> n &lt; m:
+        <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>
+    <span class="hljs-comment"># 返回组合数结果，注意取模3</span>
+    <span class="hljs-keyword">return</span> fac[n] * fac[m] * fac[n - m] % <span class="hljs-number">3</span>
+
+<span class="hljs-comment"># 计算 Lucas 序列的第 n 项，n 和 m 是非负整数</span>
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">Lucas</span><span class="hljs-params">(n, m)</span>:</span>
+    ans = <span class="hljs-number">1</span>
+    <span class="hljs-keyword">while</span> m <span class="hljs-keyword">and</span> ans:
+        ans, n, m = ans * C(n % <span class="hljs-number">3</span>, m % <span class="hljs-number">3</span>) % <span class="hljs-number">3</span>, n // <span class="hljs-number">3</span>, m // <span class="hljs-number">3</span>
+    <span class="hljs-keyword">return</span> ans
+
+<span class="hljs-comment"># 计算最后一行的颜色</span>
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">triangle</span><span class="hljs-params">(row)</span>:</span>
+    i, ans, n = <span class="hljs-number">0</span>, <span class="hljs-number">0</span>, len(row) - <span class="hljs-number">1</span>
+    <span class="hljs-comment"># 如果只有一个字符，直接返回</span>
+    <span class="hljs-keyword">if</span> <span class="hljs-keyword">not</span> n:
+        <span class="hljs-keyword">return</span> row
+    <span class="hljs-keyword">for</span> c <span class="hljs-keyword">in</span> row:
+        <span class="hljs-comment"># 更新 ans 和 i，根据字符的颜色计算 Lucas 序列的值</span>
+        ans, i = ans + (<span class="hljs-number">0</span> <span class="hljs-keyword">if</span> c == <span class="hljs-string">'R'</span> <span class="hljs-keyword">else</span> <span class="hljs-number">1</span> <span class="hljs-keyword">if</span> c == <span class="hljs-string">'G'</span> <span class="hljs-keyword">else</span> <span class="hljs-number">2</span>) * Lucas(n, i), i + <span class="hljs-number">1</span>
+    <span class="hljs-comment"># 根据 ans 的值确定最终的颜色</span>
+    ans = (<span class="hljs-number">3</span> - ans % <span class="hljs-number">3</span> <span class="hljs-keyword">if</span> n &amp; <span class="hljs-number">1</span> <span class="hljs-keyword">else</span> ans) % <span class="hljs-number">3</span>
+    <span class="hljs-keyword">return</span> <span class="hljs-string">'R'</span> <span class="hljs-keyword">if</span> ans == <span class="hljs-number">0</span> <span class="hljs-keyword">else</span> <span class="hljs-string">'G'</span> <span class="hljs-keyword">if</span> ans == <span class="hljs-number">1</span> <span class="hljs-keyword">else</span> <span class="hljs-string">'B'</span>
+
+<span class="hljs-comment"># 测试例子</span>
+print(triangle(<span class="hljs-string">'GB'</span>))       <span class="hljs-comment"># 输出 'R'</span>
+print(triangle(<span class="hljs-string">'RGBG'</span>))     <span class="hljs-comment"># 输出 'B'</span>
+print(triangle(<span class="hljs-string">'RBRGBRB'</span>))  <span class="hljs-comment"># 输出 'G'</span>
+</div></code></pre>
+<p><strong>解题过程描述：</strong></p>
+<p><strong>1. 组合数计算：</strong> 首先，定义了一个计算组合数的函数 <code>C(n, m)</code>。这个函数会在模3下计算组合数的结果，其中 <code>inv(x)</code> 表示取反，即0-&gt;0, 1-&gt;2, 2-&gt;1。这个函数会使用递归的方式计算组合数，注意取模3。</p>
+<p><strong>2. Lucas 序列计算：</strong> 接下来，定义了一个计算 Lucas 序列的函数 <code>Lucas(n, m)</code>。这个函数计算 Lucas 序列的第 n 项，其中 n 和 m 是非负整数。函数使用循环来计算 Lucas 序列，使用 <code>C</code> 函数来计算组合数。它会一直计算直到 m 和 ans 都为0。同样，注意取模3。</p>
+<p><strong>3. 计算最后一行的颜色：</strong> 在 <code>triangle</code> 函数中，首先初始化一些变量，包括 <code>ans</code> 用于存储计算结果，<code>i</code> 用于迭代，<code>n</code> 用于表示输入字符串的长度减1。如果只有一个字符，直接返回该字符。然后，通过迭代遍历输入字符串中的每个字符。根据字符的颜色，计算 Lucas 序列的值，并更新 <code>ans</code> 和 <code>i</code>。最后，根据 <code>ans</code> 的值确定最终的颜色，根据取模3的结果，将0映射为'R'，1映射为'G'，2映射为'B'，并返回最终的颜色。</p>
+<h3 id="%E7%AC%AC%E4%BA%8C%E9%83%A8%E5%88%86-%E4%BD%BF%E7%94%A8mermaid%E7%BB%98%E5%88%B6%E7%A8%8B%E5%BA%8F%E6%B5%81%E7%A8%8B%E5%9B%BE">第二部分 使用Mermaid绘制程序流程图</h3>
+<h4 id="%E7%AC%AC%E4%B8%80%E9%A2%98-%E5%81%9C%E6%AD%A2%E9%80%86%E8%BD%AC%E6%88%91%E7%9A%84%E5%8D%95%E8%AF%8D">第一题: 停止逆转我的单词</h4>
+<pre><code class="language-mermaid"><div class="mermaid">graph TD
+A(开始) --> B(将输入句子分割成单词)
+B --> C(遍历单词)
+C --> D(检查单词长度)
+D --> E{长度 >= 5?}
+E -- 是 --> F(反转单词)
+E -- 否 --> G(不反转单词)
+F --> C
+G --> C
+C --> H(拼接单词)
+H --> I(返回结果)
+I --> J(结束)
+</div></code></pre>
+<h4 id="%E7%AC%AC%E4%BA%8C%E9%A2%98%E5%8F%91%E7%8E%B0%E7%A6%BB%E7%BE%A4%E7%9A%84%E6%95%B0find-the-parity-outlier">第二题:发现离群的数(Find The Parity Outlier)</h4>
+<pre><code class="language-mermaid"><div class="mermaid">graph TD
+A(开始) --> B(创建空的奇数列表和偶数列表)
+B --> C(遍历输入的整数数组)
+C --> D(检查元素的奇偶性)
+D --> E{奇数?}
+E -- 是 --> F(添加到奇数列表)
+E -- 否 --> G(添加到偶数列表)
+F --> C
+G --> C
+C --> H(比较列表长度)
+H --> I{奇数列表长度 < 偶数列表长度?}
+I -- 是 --> J(返回奇数列表的第一个元素)
+I -- 否 --> K(返回偶数列表的第一个元素)
+J --> L(返回结果)
+K --> L
+L --> M(结束)
+</div></code></pre>
+<h4 id="%E7%AC%AC%E4%B8%89%E9%A2%98%E6%A3%80%E6%B5%8Bpangram">第三题:检测Pangram</h4>
+<pre><code class="language-mermaid"><div class="mermaid">graph TD
+A(开始) --> B(将字符串转换为小写)
+B --> C(遍历英文字母表中的小写字母)
+C --> D(检查字母是否在字符串中)
+D --> E{字母存在?}
+E -- 是 --> F(继续下一个字母)
+E -- 否 --> G(返回False)
+F --> C
+G --> H(遍历结束)
+H --> I{有字母不存在?}
+I -- 是 --> J(返回False)
+I -- 否 --> K(返回True)
+J --> K
+K --> L(结束)
+</div></code></pre>
+<h4 id="%E7%AC%AC%E5%9B%9B%E9%A2%98%E6%95%B0%E7%8B%AC%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88%E9%AA%8C%E8%AF%81">第四题：数独解决方案验证</h4>
+<pre><code class="language-mermaid"><div class="mermaid">graph TD
+A(开始) --> B(创建数字集合 elements)
+B --> C(验证行)
+C --> D(将行转换为集合)
+D --> E(比较集合与 elements)
+E --> F{行有效?}
+F -- 是 --> G(继续下一行)
+F -- 否 --> H(返回False)
+G --> C
+H --> I(验证列)
+I --> J(将数独板进行转置)
+J --> K(验证列)
+K --> L(将列转换为集合)
+L --> M(比较集合与 elements)
+M --> N{列有效?}
+N -- 是 --> O(继续下一列)
+N -- 否 --> P(返回False)
+O --> I
+P --> Q(验证九宫格)
+Q --> R(遍历每个九宫格)
+R --> S(提取九宫格内的数字)
+S --> T(比较集合与 elements)
+T --> U{九宫格有效?}
+U -- 是 --> V(继续下一个九宫格)
+U -- 否 --> W(返回False)
+V --> Q
+W --> X(遍历结束)
+X --> Y{任何部分无效?}
+Y -- 是 --> Z(返回False)
+Y -- 否 --> A1(返回True)
+Z --> A1
+A1 --> A2(结束)
+</div></code></pre>
+<h4 id="%E7%AC%AC%E4%BA%94%E9%A2%98%E7%96%AF%E7%8B%82%E7%9A%84%E5%BD%A9%E8%89%B2%E4%B8%89%E8%A7%92%E5%BD%A2">第五题：疯狂的彩色三角形</h4>
+<pre><code class="language-mermaid"><div class="mermaid">graph TD
+A(开始) --> B(定义函数)
+B --> C(初始化组合数计算参数)
+C --> D(初始化 Lucas 序列参数)
+D --> E(初始化结果变量和迭代变量)
+E --> F(遍历输入字符串的字符)
+F --> G(计算字符的颜色)
+G --> H(计算组合数)
+H --> I(计算 Lucas 序列)
+I --> J(更新结果和迭代变量)
+J --> K{遍历结束?}
+K -- 否 --> E
+K -- 是 --> L(根据结果计算最终颜色)
+L --> M(返回最终颜色)
+M --> N(结束)
+</div></code></pre>
+<h2 id="%E5%AE%9E%E9%AA%8C%E8%80%83%E6%9F%A5">实验考查</h2>
+<p>请使用自己的语言并使用尽量简短代码示例回答下面的问题，这些问题将在实验检查时用于提问和答辩以及实际的操作。</p>
+<p><strong>1. 集合（set）类型有什么特点？它和列表（list）类型有什么区别？</strong></p>
+<p><strong>集合（set）类型在Python中具有以下特点：</strong></p>
+<ul>
+<li>集合是无序的：集合中的元素没有特定的顺序，不像列表一样有索引来访问元素。</li>
+<li>集合中的元素是唯一的：每个元素只能在集合中出现一次，重复的元素会被自动去重。</li>
+<li>集合是可变的：你可以向集合中添加或删除元素。</li>
+</ul>
+<p><strong>与列表（list）类型的区别：</strong></p>
+<ul>
+<li>列表是有序的，元素按照插入的顺序排列，而集合没有特定的顺序。</li>
+<li>列表允许元素重复，而集合中的元素是唯一的。</li>
+<li>集合通常用于执行集合操作，如并集、交集、差集等，而列表更常用于一般的数据存储和操作。</li>
+<li>列表使用方括号 <code>[ ]</code> 来定义和访问元素，而集合使用大括号 <code>{ }</code> 或 <code>set()</code> 来定义，并使用 <code>add()</code> 和 <code>remove()</code> 方法来操作元素。</li>
+</ul>
+<p>示例：</p>
+<pre class="hljs"><code><div><span class="hljs-comment"># 创建一个列表</span>
+my_list = [<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>, <span class="hljs-number">5</span>]
+print(my_list)  <span class="hljs-comment"># 输出: [1, 2, 3, 3, 4, 5]</span>
+
+<span class="hljs-comment"># 创建一个集合</span>
+my_set = {<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>, <span class="hljs-number">5</span>}
+print(my_set)  <span class="hljs-comment"># 输出: {1, 2, 3, 4, 5}</span>
+
+<span class="hljs-comment"># 使用集合操作</span>
+set1 = {<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>}
+set2 = {<span class="hljs-number">3</span>, <span class="hljs-number">4</span>, <span class="hljs-number">5</span>}
+union_set = set1 | set2  <span class="hljs-comment"># 并集</span>
+print(union_set)  <span class="hljs-comment"># 输出: {1, 2, 3, 4, 5}</span>
+</div></code></pre>
+<p>总之，集合适用于需要唯一性和集合操作的情况，而列表适用于有序存储和可以包含重复元素的情况。</p>
+<p><strong>2. 集合（set）类型主要有那些操作？</strong></p>
+<p>集合（set）类型支持多种操作，用于执行集合论中的各种操作，如并集、交集、差集、对称差等。以下是一些主要的集合操作：</p>
+<p><strong>1. 并集（Union）：</strong> 获取两个集合的所有不重复元素的合并。</p>
+<pre class="hljs"><code><div>set1 = {<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>}
+set2 = {<span class="hljs-number">3</span>, <span class="hljs-number">4</span>, <span class="hljs-number">5</span>}
+union_set = set1 | set2
+<span class="hljs-comment"># 或使用 union() 方法</span>
+union_set = set1.union(set2)
+</div></code></pre>
+<p><strong>2. 交集（Intersection）：</strong> 获取两个集合中共同存在的元素。</p>
+<pre class="hljs"><code><div>set1 = {<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>}
+set2 = {<span class="hljs-number">3</span>, <span class="hljs-number">4</span>, <span class="hljs-number">5</span>}
+intersection_set = set1 &amp; set2
+<span class="hljs-comment"># 或使用 intersection() 方法</span>
+intersection_set = set1.intersection(set2)
+</div></code></pre>
+<p><strong>3. 差集（Difference）：</strong> 获取一个集合中存在，而另一个集合中不存在的元素。</p>
+<pre class="hljs"><code><div>set1 = {<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>}
+set2 = {<span class="hljs-number">3</span>, <span class="hljs-number">4</span>, <span class="hljs-number">5</span>}
+difference_set = set1 - set2
+<span class="hljs-comment"># 或使用 difference() 方法</span>
+difference_set = set1.difference(set2)
+</div></code></pre>
+<p><strong>4. 对称差（Symmetric Difference）：</strong> 获取两个集合中仅存在于其中一个集合中的元素。</p>
+<pre class="hljs"><code><div>set1 = {<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>}
+set2 = {<span class="hljs-number">3</span>, <span class="hljs-number">4</span>, <span class="hljs-number">5</span>}
+symmetric_difference_set = set1 ^ set2
+<span class="hljs-comment"># 或使用 symmetric_difference() 方法</span>
+symmetric_difference_set = set1.symmetric_difference(set2)
+</div></code></pre>
+<p><strong>5. 子集（Subset）和超集（Superset）：</strong> 检查一个集合是否是另一个集合的子集或超集。</p>
+<pre class="hljs"><code><div>set1 = {<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>}
+set2 = {<span class="hljs-number">1</span>, <span class="hljs-number">2</span>}
+is_subset = set2.issubset(set1)
+is_superset = set1.issuperset(set2)
+</div></code></pre>
+<p><strong>6. 添加元素：</strong> 向集合中添加元素。</p>
+<pre class="hljs"><code><div>my_set = {<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>}
+my_set.add(<span class="hljs-number">4</span>)
+</div></code></pre>
+<p><strong>7. 删除元素：</strong> 从集合中删除元素。</p>
+<pre class="hljs"><code><div>my_set = {<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>}
+my_set.remove(<span class="hljs-number">2</span>)
+</div></code></pre>
+<p><strong>8. 清空集合：</strong> 移除集合中的所有元素。</p>
+<pre class="hljs"><code><div>my_set = {<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>}
+my_set.clear()
+</div></code></pre>
+<p><strong>9. 获取集合大小：</strong> 获取集合中元素的数量。</p>
+<pre class="hljs"><code><div>my_set = {<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>}
+size = len(my_set)
+</div></code></pre>
+<p>这些是集合类型主要支持的操作。集合操作使得在处理不同数据集之间的关系时非常方便，例如数据去重、查找共同元素等。</p>
+<p><strong>3. 使用<code>*</code>操作符作用到列表上会产生什么效果？为什么不能使用<code>*</code>操作符作用到嵌套的列表上？使用简单的代码示例说明。</strong></p>
+<p><code>*</code> 操作符在Python中用于复制或重复列表中的元素。当将 <code>*</code> 作用于列表时，它会复制列表中的元素。但是，如果将 <code>*</code> 作用于嵌套的列表，它将重复嵌套列表本身而不是列表中的元素。</p>
+<p><strong>作用于普通列表的 <code>*</code> 操作：</strong></p>
+<pre class="hljs"><code><div>my_list = [<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>]
+duplicated_list = my_list * <span class="hljs-number">3</span>
+print(duplicated_list)
+</div></code></pre>
+<p>输出结果：</p>
+<pre class="hljs"><code><div>[<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>]
+</div></code></pre>
+<p>在这个示例中，<code>my_list</code> 是一个包含整数的列表，使用 <code>*</code> 操作符将其复制了三次，产生了一个包含九个元素的新列表 <code>duplicated_list</code>。</p>
+<p><strong>作用于嵌套的列表的 <code>*</code> 操作：</strong></p>
+<pre class="hljs"><code><div>nested_list = [[<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>]]
+duplicated_nested_list = nested_list * <span class="hljs-number">3</span>
+print(duplicated_nested_list)
+</div></code></pre>
+<p>输出结果：</p>
+<pre class="hljs"><code><div>[[<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>], [<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>], [<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>]]
+</div></code></pre>
+<p>在这个示例中，<code>nested_list</code> 是一个包含一个嵌套列表的列表，使用 <code>*</code> 操作符将整个嵌套列表复制了三次，产生了一个包含三个相同嵌套列表的新列表 <code>duplicated_nested_list</code>。</p>
+<p><strong>4. 总结列表,集合，字典的解析（comprehension）的使用方法。使用简单的代码示例说明。</strong></p>
+<p><strong>列表解析 (List Comprehension):</strong></p>
+<p>列表解析是一种简洁的方式来创建新的列表，通常基于现有的列表或可迭代对象。它的基本语法是在一个中括号内定义一个表达式，然后通过迭代可迭代对象的元素来生成新的列表。</p>
+<p>示例：</p>
+<pre class="hljs"><code><div><span class="hljs-comment"># 使用列表解析创建一个包含1到10的平方的列表</span>
+squares = [x**<span class="hljs-number">2</span> <span class="hljs-keyword">for</span> x <span class="hljs-keyword">in</span> range(<span class="hljs-number">1</span>, <span class="hljs-number">11</span>)]
+</div></code></pre>
+<p><strong>集合解析 (Set Comprehension):</strong></p>
+<p>集合解析与列表解析类似，但用大括号而不是中括号。它用于创建新的集合，并去除重复的元素。</p>
+<p>示例：</p>
+<pre class="hljs"><code><div><span class="hljs-comment"># 使用集合解析创建一个包含1到10的平方的集合</span>
+unique_squares = {x**<span class="hljs-number">2</span> <span class="hljs-keyword">for</span> x <span class="hljs-keyword">in</span> range(<span class="hljs-number">1</span>, <span class="hljs-number">11</span>)}
+</div></code></pre>
+<p><strong>字典解析 (Dictionary Comprehension):</strong></p>
+<p>字典解析用于创建新的字典。它也使用大括号，但包括键-值对的定义。</p>
+<p>示例：</p>
+<pre class="hljs"><code><div><span class="hljs-comment"># 使用字典解析创建一个包含1到5的数字及其平方的字典</span>
+squares_dict = {x: x**<span class="hljs-number">2</span> <span class="hljs-keyword">for</span> x <span class="hljs-keyword">in</span> range(<span class="hljs-number">1</span>, <span class="hljs-number">6</span>)}
+</div></code></pre>
+<h2 id="%E5%AE%9E%E9%AA%8C%E6%80%BB%E7%BB%93">实验总结</h2>
+<p>在本次实验中，我学习和应用了以下知识和技巧：</p>
+<ol>
+<li>
+<p><strong>字符串处理</strong>：在第一题 &quot;停止逆转我的单词&quot; 中，我学会了如何使用字符串的 <code>split</code> 和 <code>join</code> 方法来拆分和连接字符串。这在处理文本数据时非常有用。</p>
+</li>
+<li>
+<p><strong>列表推导</strong>：在第一题和第二题中，我使用了列表推导来处理列表中的元素。列表推导是一种强大的工具，可以快速生成新的列表，从而减少编写循环的复杂性。</p>
+</li>
+<li>
+<p><strong>算法思想</strong>：在第二题 &quot;发现离群的数&quot; 中，我使用了算法思想来找出离群的数。通过计算奇数和偶数的数量，我能够确定哪个数字是离群的。</p>
+</li>
+<li>
+<p><strong>集合和集合操作</strong>：在第四题 &quot;数独解决方案验证&quot; 中，我使用了集合来进行集合操作，以验证数独解决方案的有效性。集合是用于处理唯一元素的数据结构，非常适合这种任务。</p>
+</li>
+<li>
+<p><strong>递归和循环</strong>：在第五题 &quot;疯狂的彩色三角形&quot; 中，我使用了递归和循环来计算组合数和Lucas序列。这些是解决复杂计算问题的重要工具。</p>
+</li>
+</ol>
+<p>总的来说，这次实验帮助我巩固了Python的语法和数据结构的知识，同时也锻炼了我的问题解决和编程技能。这些知识和技巧对于解决各种编程问题都非常有用。</p>
+
+</body>
+</html>
