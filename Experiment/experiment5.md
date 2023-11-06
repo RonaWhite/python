@@ -171,7 +171,7 @@ triangle('RBRGBRBGGRRRBGBBBGG') == 'G'
 
 使用Markdown语法绘制你的程序绘制程序流程图（至少一个），Markdown代码如下：
 
-![程序流程图](/img/5-image.png)
+![程序流程图](img/5-image.png)
 
 显示效果如下：
 
