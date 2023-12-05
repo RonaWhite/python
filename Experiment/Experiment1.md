@@ -65,7 +65,7 @@ git pull
 
 访问[learngitbranching.js.org](https://learngitbranching.js.org)，如下图所示完成Main部分的Introduction Sequence和Ramping Up两个小节的学习。
 
-![1-image1](/img/1-image1.png)
+![1-image1](/img/1-image.png)
 
 上面你学习到的git命令基本上可以应付百分之九十以上的日常使用，如果你想继续深入学习git，可以：
 
@@ -364,7 +364,7 @@ git commit -m "Starting over."
 
 学习结果截图如下：
 
-![Alt text](image.png)
+![1-image1](/img/1-image1.png)
 
 通过学习[learngitbranching.js.org](https://learngitbranching.js.org)的Introduction Sequence和Ramping Up，掌握了基本的Git分支操作，包括创建分支、切换分支、合并分支等；了解了更多关于分支操作的技巧，包括交互式rebase、rebase合并等；加深了对Git分支操作的理解，从而更熟练地应用Git进行版本控制和协同开发。
 
