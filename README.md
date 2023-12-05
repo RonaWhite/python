@@ -8,9 +8,7 @@
 
 ## 实验内容
 
-该仓库共包括了七个实验报告：
-
-*(点击即可跳转到对应的文件)*
+该仓库共包括了七个实验报告： *(点击即可跳转到对应的文件)*
 
 - [实验一 Git和Markdown基础](https://github.com/RonaWhite/python/blob/main/Experiment/experiment1.md)
 - [实验二 Python变量、简单数据类型](https://github.com/RonaWhite/python/blob/main/Experiment/experiment2.md)
@@ -20,9 +18,7 @@
 - [实验六 函数](https://github.com/RonaWhite/python/blob/main/Experiment/experiment6.md)
 - [实验七 Python面向对象编程](https://github.com/RonaWhite/python/blob/main/Experiment/experiment7.md)
 
-对应的实验代码如下：
-
-*(点击即可跳转到对应的文件)*
+对应的实验代码如下： *(点击即可跳转到对应的文件)*
 
 - [实验一 Git和Markdown基础](https://github.com/RonaWhite/python/blob/main/Code/experiment1.ipynb)
 - [实验二 Python变量、简单数据类型](https://github.com/RonaWhite/python/blob/main/Code/experiment2.ipynb)
@@ -41,14 +37,13 @@
 在课程学习过程中，我使用了以下工具，它们对我的学习和实验有着重要的作用：
 
 -  **Git**：作为版本控制软件，我充分利用Git进行实验报告的管理。它不仅仅用于课程的理论教学，还在实践中扮演着重要角色，让我更好地组织和管理实验报告、项目代码等内容。
-
-- **Markdown**：这种轻量级标记语言在我的学习过程中扮演了关键的角色。我使用Markdown来编写课堂笔记、实验报告以及项目文档等。它的简洁和易读性使得我的文档更加清晰、规范。
-
-- **Typora**：作为一个所见即所得的Markdown编辑器，Typora的直观界面和实时预览功能让我的Markdown文档编辑更加高效。其无干扰的写作模式以及快速导出功能帮助我专注于内容的创作和整理，同时可以方便地导出为PDF或其他格式，便于分享和提交实验报告。
-
+-  **Markdown**：这种轻量级标记语言在我的学习过程中扮演了关键的角色。我使用Markdown来编写课堂笔记、实验报告以及项目文档等。它的简洁和易读性使得我的文档更加清晰、规范。
+-  **Typora**：作为一个所见即所得的Markdown编辑器，Typora的直观界面和实时预览功能让我的Markdown文档编辑更加高效。其无干扰的写作模式以及快速导出功能帮助我专注于内容的创作和整理，同时可以方便地导出为PDF或其他格式，便于分享和提交实验报告。
 - **VSCode**：作为一款强大的编辑器，VSCode提供了许多便捷的功能，如集成Git版本控制、Markdown编辑、软件测试以及代码调试等。掌握并熟练使用VSCode是我学习编程过程中的重要技能，它为我的学习和实验提供了很大的便利。
 
 
+
+***后期代码的维护，请联系QQ：1186505776***
 
 
 
