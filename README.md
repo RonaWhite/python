@@ -8,7 +8,7 @@
 
 ## 实验内容
 
-该仓库共包括了七个实验报告及其对应的实验代码：
+该仓库共包括了七个实验报告：
 
 - [实验一 Git和Markdown基础](https://github.com/RonaWhite/python/blob/main/Experiment/experient1.md)
 - [实验二 Python变量、简单数据类型](https://github.com/RonaWhite/python/blob/main/Experiment/experient2.md)
@@ -17,6 +17,10 @@
 - [实验五 Python数据结构与数据模型](https://github.com/RonaWhite/python/blob/main/Experiment/experient5.md)
 - [实验六 函数](https://github.com/RonaWhite/python/blob/main/Experiment/experient6.md)
 - [实验七 Python面向对象编程](https://github.com/RonaWhite/python/blob/main/Experiment/experient7.md)
+
+对应的实验代码如下：
+
+
 
 实验报告的内容包括教材《Python从入门到实践》的课后练习，另外还包括了[Codewars网站](https://www.codewars.com/)上的Kata挑战，以及每个Kata挑战对应的Mermaid流程图。
 
